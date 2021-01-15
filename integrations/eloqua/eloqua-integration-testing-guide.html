@@ -1,0 +1,636 @@
+﻿<!doctype html>
+<html lang="es-es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Guía de Pruebas de Integración de Eloqua</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">BRIGHTCOVE AUDIENCIA<sup>™</sup></span></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">Otros documentos de Brightcove</option>
+      
+        
+          <option value="https://support.brightcove.com">Documentación Inicio</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">Brightcove Social</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/integrations/eloqua/">Eloqua</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Guía de Pruebas de Integración de Eloqua</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/index.html">Inicio</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/get-started/index.html">Empezar <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/get-started/getting-started-audience-module.html">Introducción a Audience</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/audience-training-videos.html">Vídeos de formación del público</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/audience-fields-and-data-definitions.html">Campos de audiencia y definiciones de datos</a></li>
+                  
+                
+                  
+                    <li><a href="/general/configuring-audience-settings.html">Configuración de la audiencia</a></li>
+                  
+                
+                  
+                    <li><a href="/general/creating-audience-enabled-player.html">Creación de un reproductor habilitado para audiencias</a></li>
+                  
+                
+                  
+                    <li><a href="/general/creating-audience-lead-form.html">Creación de un formulario de prospecto de audiencia</a></li>
+                  
+                
+                  
+                    <li><a href="/general/how-audience-module-identifies-viewers.html">Cómo identifica la audiencia a los espectadores</a></li>
+                  
+                
+                  
+                    <li>Publicación de un vídeo en correo electrónico<a href="/general/publishing-video-email-using-audience-module.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de métricas y eventos personalizados<a href="/general/using-custom-metrics-and-events.html"></a></li>
+                  
+                
+                  
+                    <li>Visualización de eventos del reproductor<a href="/general/viewing-player-events-audience-module.html"></a></li>
+                  
+                
+                  
+                    <li>Visualización de actividad de vídeo<a href="/general/viewing-video-activity.html"></a></li>
+                  
+                
+                  
+                    <li>Visualización de información del perfil del visor<a href="/general/viewing-viewer-profile-information.html"></a></li>
+                  
+                
+                  
+                    <li>Trabajar con campos UTM<a href="/general/working-utm-fields-audience-module.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/integrations/index.html">Integraciones <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/integrations/eloqua/index.html">Eloqua <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/integrations/eloqua/creating-custom-lead-forms-oracle-eloqua.html">Creación de formularios de clientes potenciales personalizados</a></li>
+                        
+                        <li><a href="/integrations/eloqua/eloqua-integration-testing-guide.html">Guía de Pruebas de Integración de Eloqua</a></li>
+                        
+                        <li><a href="/integrations/eloqua/embedding-video-cloud-video-eloqua-landing-page.html">Incrustar un vídeo en una página de destino</a></li>
+                        
+                        <li><a href="/integrations/eloqua/integrating-video-cloud-oracle-eloqua.html">Integración con Oracle Eloqua</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/integrations/hubspot/index.html">HubSpot <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/integrations/hubspot/creating-custom-lead-forms-hubspot.html">Creación de formularios de clientes potenciales personalizados</a></li>
+                        
+                        <li><a href="/integrations/hubspot/hubspot-rest-api-integration-testing-guide.html">Guía de prueba de API REST de HubSpot</a></li>
+                        
+                        <li><a href="/integrations/hubspot/integrating-video-cloud-hubspot-using-client-side-apis.html">Integración con HubSpot (API del lado del cliente)</a></li>
+                        
+                        <li><a href="/integrations/hubspot/integrating-video-cloud-hubspot-using-rest-apis.html">Integración con HubSpot (API REST)</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      Marketo +<a href="/integrations/marketo/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/integrations/marketo/creating-custom-lead-forms-marketo.html">Creación de formularios de clientes potenciales personalizados</a></li>
+                        
+                        <li><a href="/integrations/marketo/integrating-video-cloud-marketo-using-munchkin.html">Integración con Marketo (Munchkin)</a></li>
+                        
+                        <li><a href="/integrations/marketo/integrating-video-cloud-marketo-using-rest-apis.html">Integración con Marketo (API REST)</a></li>
+                        
+                        <li>Guía de pruebas de integración de REST de Marketo<a href="/integrations/marketo/marketo-rest-integration-testing-guide.html"></a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      No mapa +<a href="/integrations/non-map/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/integrations/non-map/creating-custom-integrations-audience-module.html">Creación de integraciones personalizadas</a></li>
+                        
+                        <li><a href="/integrations/non-map/integrating-audience-single-sign.html">Integración con inicio de sesión único</a></li>
+                        
+                        <li>Uso de audiencia para realizar el seguimiento de los visores<a href="/integrations/non-map/using-audience-module-track-viewers.html"></a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      Salesforce +<a href="/integrations/salesforce/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/integrations/salesforce/creating-custom-lead-forms-salesforce.html">Creación de formularios de clientes potenciales personalizados</a></li>
+                        
+                        <li><a href="/integrations/salesforce/creating-custom-lead-forms-salesforce.html">Creación de objeto de Salesforce para Pardot</a></li>
+                        
+                        <li><a href="/integrations/salesforce/integrating-video-cloud-salesforce.html">Integración con Salesforce</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/admin/index.html">Administración de audiencias <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Exportación de datos de audiencia<a href="/admin/exporting-audience-data-audience-module.html"></a></li>
+                  
+                
+                  
+                    <li>Exportación de datos de prospecto<a href="/admin/exporting-gallery-lead-data.html"></a></li>
+                  
+                
+                  
+                    <li>Administración de datos del visor<a href="/admin/managing-viewer-data.html"></a></li>
+                  
+                
+                  
+                    <li>Solución de problemas de audiencia<a href="/admin/troubleshooting-audience-issues.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/develop/index.html">Desarrolladores <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Visión general:<a href="/develop/overview-audience-api.html"> API de audiencia</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/reference.html">Referencia de API de audiencia</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">Respuestas de Brightcove</a></li>
+                  
+                
+                  
+                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
+                  
+                
+                  
+                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenido de la página</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>Guía de Pruebas de Integración de Eloqua</h1>
+  <summary>En este tema aprenderá a verificar una integración entre Video Cloud y Eloqua.</summary>
+  <section class="bcls-section">
+    <p>Al configurar una nueva integración de Eloqua, puede ser difícil probar y confirmar que los datos de visualización de vídeo se están entregando a Eloqua. En este tema, aprenderá cómo probar y confirmar sistemáticamente que la integración funciona y que la visualización de datos y clientes potenciales se están enviando a Eloqua.</p>
+    <aside class="bcls-aside bcls-aside--information">Nota: Para obtener información sobre cómo configurar el módulo Audience para su uso con Eloqua, consulte&nbsp;<a href="/integrations/eloqua/integrating-video-cloud-oracle-eloqua.html">Integración de Video Cloud con Oracle Eloqua</a>.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="start">Antes de comenzar</h2>
+    <p>Antes de validar la integración, se supone que tiene:</p>
+    <ul>
+      <li>Se completó con éxito la <a href="/integrations/eloqua/integrating-video-cloud-oracle-eloqua.html">integración de Brightcove Audience con Eloqua</a></li>
+      <li>Se creó al menos un <a href="/general/creating-audience-enabled-player.html">reproductor habilitado para audición</a> y lo configuró para utilizar la conexión Eloqua</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="lead_form">Configuración de un formulario de prospecto de prueba y publicación de un vídeo</h2>
+    <p>Para fines de prueba, deberá crear y configurar un formulario de prospecto personalizado en Audience. Este es un formulario Eloqua cuyo código de incrustación ha pegado en Audience. Incluso si no va a utilizar formularios de prospecto en su entorno de producción, este formulario de prospecto se utiliza para asegurarse de que se conoce en la base de datos y en la página. Para crear un formulario Eloqua y configurar Audience para utilizarlo, siga estos pasos.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Inicie sesión en su cuenta de Eloqua.</li>
+      <li>Crear y dar estilo a una forma Eloqua. Para obtener información sobre la creación de un formulario Eloqua, consulte <a href="/integrations/eloqua/creating-custom-lead-forms-oracle-eloqua.html">Creación de Formularios de clientes potenciales personalizados para Oracle Eloqua</a>.</li>
+      <li>Haga clic en <strong>Acciones &gt; Ver formulario HTML</strong> en la parte superior de la página.</li>
+      <li>Copie el código de inserción del formulario en el portapapeles.</li>
+      <li>Vuelva al módulo Audience.</li>
+      <li>Cree un nuevo formulario de prospecto utilizando el código de inserción de formulario Eloqua.</li>
+      <li>Establezca el formulario personalizado para mostrar el formulario en la marca de 5 segundos. De esta manera sabrás exactamente cuándo debería aparecer.</li>
+      <li>Marque la casilla <strong>Mostrar siempre el formulario de prospecto incluso si el cliente potencial ya se conoce</strong>. Esto asegurará que el formulario siga mostrándose después de rellenarlo durante la prueba.</li>
+      <li>Guarde el formulario.<strong></strong></li>
+      <li>Configure Brightcove Player con la conexión Eloqua para utilizar el formulario de prospecto de Eloqua que acaba de crear.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="preview_video">Generación de un enlace de vista previa para ver el vídeo</h2>
+    <p>Para generar un enlace de vista previa al vídeo, siga estos pasos.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Abra el módulo Media.</li>
+      <li>Seleccione un vídeo y publíquelo en un reproductor web. Asegúrese de seleccionar el reproductor habilitado para audición con el formulario de prospecto.</li>
+      <li>Haga clic en el enlace de vista previa para abrir el vídeo en una nueva ventana del navegador. La prueba de esta manera elimina cualquier variable potencial que podría ser introducida por los jugadores incrustados en páginas HTML.</li>
+      <li>Confirme que se reproduzca el vídeo y que el formulario de prospecto se muestre en la marca de 5 segundos.</li>
+      <li>Rellene el formulario de prospecto utilizando información de contacto única y dirección de correo electrónico (es decir, un nombre de celebridad o un nombre que contenga las palabras «bctest») para que pueda encontrarse fácilmente más adelante en Eloqua. Esto elimina cualquier variable de nivel de navegador, jugador o base de datos. Al rellenar el formulario como nuevo usuario, podemos estar seguros de que ahora eres un usuario conocido en Eloqua.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="confirm_data">Confirmar que Audience está capturando correctamente los datos</h2>
+    <p>Antes de buscar datos de visualización de vídeo en Eloqua, primero confirme que Audience ha capturado la vista de vídeo. Tenga en cuenta que la visualización de datos puede tardar hasta 3 horas en mostrarse en la interfaz de usuario de audiencia. Para confirmar que Audience está capturando correctamente los datos, siga estos pasos.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Abra el módulo Audience.</li>
+      <li>Haga clic en <strong>Todas las actividades recientes</strong> en la navegación izquierda.</li>
+      <li>Confirme que hay un evento con una marca de hora reciente que muestre el nombre del vídeo que se acaba de ver. El estado del evento debe estar sin procesar.<strong></strong> Esto indica que Audience ha capturado la vista pero aún no ha intentado sincronizarla con Eloqua.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/integrations/eloqua/node18742-unprocessed.png"/></figure>
+      </li>
+      <li>Para activar manualmente una sincronización entre Audience y Eloqua, haga clic en <strong>Actividad de sincronización</strong> en la navegación izquierda.</li>
+      <li>En la lista desplegable <strong>Seleccionar conexión</strong> , seleccione su integración de Eloqua. Debería aparecer un botón <strong>Test Sync</strong> .</li>
+      <li>Haga clic en<strong> Probar sincronización</strong> para activar una sincronización manual. Tenga en cuenta que está limitado a la frecuencia con la que puede activar una sincronización manual. De forma predeterminada, Audience sincronizará las vistas con Eloqua una vez por hora.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/integrations/eloqua/node18742-test-sync.png"/></figure>
+      </li>
+      <li>Haga clic en <strong>Todas las actividades recientes</strong> en la navegación izquierda.</li>
+      <li>El estado de su evento de vista se pondrá en cola.<strong></strong> Es posible que los datos tarden 15 minutos en sincronizarse realmente con Eloqua. Una vez que los datos se sincronicen, el estado cambiará a uno de los dos estados:
+        <ul>
+          <li>synced: indica que el usuario era un usuario conocido y los datos se entregaron correctamente a su registro de actividades.<strong></strong> Los datos también deben ser visibles en Eloqua en pocos minutos.</li>
+          <li><strong>unknown_contact</strong> - Indica que el usuario fue considerado desconocido y Eloqua no pudo aceptar los datos. Si obtiene un estado de <strong>unknown_contact</strong> , compruebe que ha publicado el vídeo con el reproductor correcto, tenga un formulario Eloqua en su lugar y esté probando utilizando el enlace de vista previa, no incrustado en una página.
+            <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/integrations/eloqua/node18742-synced.png"/></figure>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="confirm_marketo">Confirmando que los datos de la vista de vídeo se encuentran en Eloqua</h2>
+    <p>Una vez que Audience haya mostrado un estado <strong>sincronizado</strong> , siga estos pasos para verificar que los datos están en Eloqua.</p>
+    <aside class="bcls-aside bcls-aside--information">Nota: La interfaz de usuario de Eloqua tarda de 5 a 10 minutos en actualizarse con los nuevos datos que ha recibido de Audience.</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>Inicie sesión en su cuenta de Eloqua.</li>
+      <li>Desplácese hasta <strong>Objetos personalizados</strong>.</li>
+      <li>Busque el objeto personalizado <strong>BrightCoveVideoView</strong> .</li>
+      <li>Haga clic en la flecha desplegable situada junto a ella y, a continuación, haga clic en <strong>Objetos personalizados Registros asignados a Contactos Desglose</strong>. Se mostrará una lista de contactos que tienen datos de visualización de vídeo en este objeto personalizado.</li>
+      <li>Localice el nombre único o la dirección de correo electrónico que utilizó al rellenar el formulario de prospecto.</li>
+      <li>Haga clic en el contacto para abrir la página de detalles. Se mostrará una lista de todos los registros de visualización de vídeo del contacto. Estos son los datos de la vista de vídeo entregados desde Audience a Eloqua. Se incluyen campos como Nombre de vídeo, ID de vídeo, ID de reproductor, Tiempo de visualización, Porcentaje de visualización y más.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/integrations/eloqua/node18742-eloqua-info.png"/></figure>
+      </li>
+    </ol>
+    <p>Eloqua requiere que los datos que se entreguen en un objeto de datos personalizado se asignen a un contacto conocido. Eloqua sólo aceptará datos de contactos conocidos. Los datos de contactos desconocidos no se sincronizarán. Si no usa formularios de prospecto, no hay forma de que un usuario desconocido convierta a un usuario conocido y, por lo tanto, no se sincronizarán datos.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenido de la página</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Última actualización de la página el 30 ene 2020
+</div>
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Asistencia técnica de Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            Estado del sistema<a href="https://status.brightcove.com"></a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentación</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formación</h2>
+
+        <ul class="menu">
+          <li>
+            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
+          </li>
+          <li>
+            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
